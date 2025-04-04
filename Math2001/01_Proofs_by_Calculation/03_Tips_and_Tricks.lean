@@ -12,11 +12,17 @@ proofs. -/
 
 -- Example 1.3.1
 example {a b : ℤ} (h1 : a = 2 * b + 5) (h2 : b = 3) : a = 11 :=
-  sorry
+  calc
+    a = 2 * b + 5 := by rw[h1]
+    _ = 2 * 3 + 5 := by rw[h2]
+    _ = 11 := by ring
 
 -- Example 1.3.2
 example {x : ℤ} (h1 : x + 4 = 2) : x = -2 :=
-  sorry
+  calc
+    x = (x + 4) - 4 := by ring
+    _ = (2) - 4 := by rw[h1]
+    _ = -2 := by ring
 
 -- Example 1.3.3
 example {a b : ℝ} (h1 : a - 5 * b = 4) (h2 : b + 2 = 3) : a = 9 :=
